@@ -43,16 +43,15 @@ pipeline {
             }
          }
 
-    }
+        post {
 
-    post {
+            aborted {
 
-        aborted {
+                currentBuild.result = 'SUCCESS'
 
-            currentBuild.result = 'SUCCESS'
+            }
 
         }
-
     }
 
 }
