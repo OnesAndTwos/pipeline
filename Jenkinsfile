@@ -13,7 +13,7 @@ pipeline {
         }
 
         stage('Can I Deploy?') {
-
+            agent none
             steps {
                 milestone(ordinal: 1, label: "BOB")
                 script {
