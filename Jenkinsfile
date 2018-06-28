@@ -21,7 +21,6 @@ pipeline {
                 sh 'echo Hello'
             }
 
-            input
         }
 
     }
