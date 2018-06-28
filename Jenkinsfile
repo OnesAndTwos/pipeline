@@ -41,17 +41,14 @@ pipeline {
                 milestone(ordinal: 3, label: "BUILD_START_MILESTONE")
                 sh 'echo Hello you'
             }
-         }
-
-        post {
-
-            aborted {
-
-                currentBuild.result = 'SUCCESS'
-
-            }
-
         }
     }
+
+    post {
+        aborted {
+            currentBuild.result = 'SUCCESS'
+        }
+    }
+
 
 }
