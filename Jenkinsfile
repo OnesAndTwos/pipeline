@@ -12,7 +12,7 @@ pipeline {
 
         }
 
-        stage("Can I Deploy?") {
+        stage('Can I Deploy?') {
 
             steps {
                 milestone
