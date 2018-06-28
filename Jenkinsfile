@@ -15,7 +15,7 @@ pipeline {
         stage('Can I Deploy?') {
 
             steps {
-                milestone
+                milestone()
                 input {
                     message "Should we continue?"
                     ok "Yes, we should."
