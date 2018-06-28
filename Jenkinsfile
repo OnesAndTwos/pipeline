@@ -9,7 +9,6 @@ pipeline {
                 sh 'echo Hello'
             }
 
-            input
         }
 
         stage('hello again') {
