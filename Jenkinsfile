@@ -17,13 +17,14 @@ pipeline {
                         ok "Yes, we should."
                     }
 
-            milestone 1
 
             steps {
                 sh 'echo Hello'
             }
 
         }
+
+        milestone 1
 
     }
 }
