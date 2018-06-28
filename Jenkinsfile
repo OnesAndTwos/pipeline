@@ -16,6 +16,7 @@ pipeline {
         stage('approval') {
              agent none
              steps {
+
                 milestone(ordinal: 1, label: "BOB")
 
                 timeout(time: 20, unit: 'DAYS') {
@@ -29,7 +30,7 @@ pipeline {
             agent any
             steps {
                 milestone(ordinal: 2, label: "BUILD_START_MILESTONE")
-                sh 'echo Hello'
+                sh 'echo Hello me'
             }
 
         }
