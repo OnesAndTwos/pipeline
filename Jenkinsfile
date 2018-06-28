@@ -15,8 +15,9 @@ pipeline {
             input {
                         message "Should we continue?"
                         ok "Yes, we should."
-                        status "COMPLETED"
                     }
+
+            milestone
 
             steps {
                 sh 'echo Hello'
@@ -27,10 +28,6 @@ pipeline {
     }
 
     post {
-         aborted {
-              script {
-                currentBuild.result = 'SUCCESS'
-              }
-            }
+
     }
 }
