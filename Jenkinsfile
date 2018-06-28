@@ -29,5 +29,10 @@ pipeline {
         always {
             deleteDir()
         }
+         aborted {
+              script {
+                currentBuild.result = 'SUCCESS'
+              }
+            }
     }
 }
