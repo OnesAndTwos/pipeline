@@ -16,11 +16,12 @@ pipeline {
 
             steps {
                 milestone(ordinal: 1, label: "BOB")
-                input {
-                    message "Should we continue?"
-                    ok "Yes, we should."
+                script {
+                    timeout(time: 20, unit: 'DAYS') {
+                        input 'Deploy to stage.'
+                    }
                 }
-            }
+             }
 
         }
 
