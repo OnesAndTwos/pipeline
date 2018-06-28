@@ -7,6 +7,7 @@ pipeline {
         stage('hello') {
             agent any
             steps {
+                milestone()
                 sh 'echo Hello'
             }
 
@@ -14,10 +15,13 @@ pipeline {
 
         stage("Can I Deploy?") {
 
-           input {
-                                message "Should we continue?"
-                                ok "Yes, we should."
-                            }
+            steps {
+                milestone("")
+                input {
+                    message "Should we continue?"
+                    ok "Yes, we should."
+                }
+            }
 
         }
 
