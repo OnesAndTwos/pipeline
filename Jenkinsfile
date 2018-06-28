@@ -18,13 +18,16 @@ pipeline {
                     }
 
 
+
+            steps {
+                milestone(ordinal: 1, label: "BUILD_START_MILESTONE")
+            }
+
             steps {
                 sh 'echo Hello'
             }
 
         }
-
-        milestone 1
 
     }
 }
