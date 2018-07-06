@@ -8,7 +8,7 @@ pipeline {
             agent any
             steps {
               dir('BuildRepo'){
-                git url: 'https://github.com/OnesAndTwos/build.git'
+                git url: 'https://gitlab.itsshared.net/ryan.dutton/jenkins-ci-pipeline.git'
               }
               sh 'echo "--- Content of Build README ---"'
               sh 'cat BuildRepo/README.md'
