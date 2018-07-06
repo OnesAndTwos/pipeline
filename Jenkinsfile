@@ -4,14 +4,15 @@ pipeline {
     agent none
 
     stages {
-    
         stage('get-build-pipeline') {
-            dir('BuildRepo'){
-              git url: 'https://github.com/OnesAndTwos/build.git'
+            steps {
+              dir('BuildRepo'){
+                git url: 'https://github.com/OnesAndTwos/build.git'
+              }
+              sh 'echo "--- Content of Build README ---"'
+              sh 'cat BuildRepo/README.md'
+              sh 'echo "-------------------------------"'
             }
-            sh 'echo "--- Content of Build README ---"'
-            sh 'cat BuildRepo/README.md'
-            sh 'echo "-------------------------------"'
         }
 
         stage('hello') {
