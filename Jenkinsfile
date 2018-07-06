@@ -5,6 +5,7 @@ pipeline {
 
     stages {
         stage('get-build-pipeline') {
+            agent any
             steps {
               dir('BuildRepo'){
                 git url: 'https://github.com/OnesAndTwos/build.git'
