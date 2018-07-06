@@ -3,6 +3,13 @@ pipeline {
 
     agent none
 
+    dir('BuildRepo'){
+      git url: 'https://github.com/OnesAndTwos/build.git'
+    }
+    sh 'echo "--- Content of Build README ---"'
+    sh 'cat BuildRepo/README.md'
+    sh 'echo "-------------------------------"'
+
     stages {
 
         stage('hello') {
