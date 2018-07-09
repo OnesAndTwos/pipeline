@@ -88,7 +88,6 @@ pipeline {
                 pip install -r requirements.txt
                 fab terraform.test_all
                '''
-        }
     }
 
     private def deployRpms(){
@@ -103,7 +102,6 @@ pipeline {
                 fab deploy_rpms:env=stagenp
                 fab deploy_rpms:env=stagepr
                '''
-        }
     }
 
     private def deployToEnvironment(environment){
@@ -125,4 +123,3 @@ pipeline {
                 '''
             }
         }
-    }
