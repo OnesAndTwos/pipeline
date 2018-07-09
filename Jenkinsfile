@@ -10,7 +10,7 @@ pipeline {
         stage('get-build-pipeline') {
 
             steps {
-              sh 'eval $(ssh-agent) -s'
+              sh 'eval `ssh-agent -s`'
               sh 'ssh-add /var/jenkins_home/.ssh/itsshared'
               dir('BuildRepo'){
                 git url: 'git@gitlab.itsshared.net:aws/shared-services.git'
