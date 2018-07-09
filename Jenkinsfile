@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'test' }
+    agent any
 
     environment {
         TMPDIR = '/tmp'
@@ -8,7 +8,6 @@ pipeline {
 
     stages {
         stage('get-build-pipeline') {
-            agent any
             steps {
               dir('BuildRepo'){
                 git url: 'https://gitlab.itsshared.net/ryan.dutton/jenkins-ci-pipeline.git'
