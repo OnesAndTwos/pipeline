@@ -25,8 +25,6 @@ pipeline {
                 rm -rf ./venv
                 python3.6 -m venv ./venv
                 . ./venv/bin/activate
-                eval $(ssh-agent)
-                ssh-add ${KEY_PATH}
                 pip install -r requirements.txt
                 fab terraform.test_all
                '''
@@ -72,17 +70,6 @@ pipeline {
             }
         }
 
-        stage('deploy to stagenp') {
-            steps {
-                deployToEnvironment('stagenp')
-            }
-        }
-
-        stage('deploy to stagepr') {
-            steps {
-                deployToEnvironment('stagepr')
-            }
-        }
     }
 
     post {
