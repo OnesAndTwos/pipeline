@@ -23,7 +23,7 @@ pipeline {
                 # Run All Tests :
                 pwd
                 rm -rf ./venv
-                python3.5 -m venv ./venv
+                python3.6 -m venv ./venv
                 . ./venv/bin/activate
                 eval $(ssh-agent)
                 ssh-add ${KEY_PATH}
@@ -98,7 +98,7 @@ pipeline {
             sh '''
                 # Run All Tests :
                 rm -rf ./venv
-                python3.5 -m venv ./venv
+                python3.6 -m venv ./venv
                 . ./venv/bin/activate
                 eval $(ssh-agent)
                 ssh-add ${KEY_PATH}
@@ -118,7 +118,7 @@ pipeline {
                 echo ${ARCHNO}
                 eval $(ssh-agent)
                 ssh-add ${KEY_PATH}
-                python3.5 -m venv ./venv
+                python3.6 -m venv ./venv
                 source ./venv/bin/activate
                 pip install -r requirements.txt
                 fab deploy_rpms:env=test
@@ -144,7 +144,7 @@ pipeline {
                     rm ${JOB_NAME}-${ARCHNO}.tar
                     eval $(ssh-agent)
                     ssh-add ${KEY_PATH}
-                    python3.5 -m venv ./venv
+                    python3.6 -m venv ./venv
                     source ./venv/bin/activate
                     pip install -r requirements.txt
                     fab deploy:env=${ENVIRONMENT}
