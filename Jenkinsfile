@@ -8,7 +8,7 @@ pipeline {
             agent any
             steps {
               dir('BuildRepo'){
-                git url: 'https://github.com/example/build.git'
+                git url: 'https://github.com/OnesAndTwos/build.git'
               }
             }
         }
