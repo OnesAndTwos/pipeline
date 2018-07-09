@@ -8,7 +8,9 @@ pipeline {
 
     stages {
         stage('get-build-pipeline') {
+
             steps {
+              sh 'ssh-add /var/jenkins_home/.ssh/itsshared'
               dir('BuildRepo'){
                 git url: 'git@gitlab.itsshared.net:aws/shared-services.git'
               }
@@ -21,7 +23,6 @@ pipeline {
             steps {
             sh '''
                 # Run All Tests :
-                pwd
                 cd BuildRepo
                 ls
                 rm -rf ./venv
