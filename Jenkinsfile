@@ -1,11 +1,11 @@
 def didTimeout = false
 pipeline {
     agent none
+    triggers { cron('H */1 * * 1-5') }
 
     stages {
         stage('get build pipeline') {
             agent any
-            triggers { cron('H */1 * * 1-5') }
             steps {
               dir('BuildRepo'){
                 git url: 'https://github.com/example/build.git'
