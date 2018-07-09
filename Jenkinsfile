@@ -2,11 +2,11 @@ def didTimeout = false
 pipeline {
 
     agent none
-    triggers { pollSCM('H */1 * * 1-5') }
 
     stages {
         stage('get-build-pipeline') {
             agent any
+            triggers { pollSCM('H */1 * * 1-5') }
             steps {
               dir('BuildRepo'){
                 git url: 'https://github.com/OnesAndTwos/build.git'
