@@ -11,11 +11,6 @@ pipeline {
               dir('BuildRepo'){
                 git url: 'https://github.com/OnesAndTwos/build.git'
               }
-              sh '''
-                   'echo "--- Content of Build README ---"'
-                   'cat BuildRepo/README.md'
-                   'echo "-------------------------------"'
-                 '''
             }
         }
 
