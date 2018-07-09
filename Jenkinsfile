@@ -1,15 +1,14 @@
 def didTimeout = false
 pipeline {
-
     agent none
 
     stages {
-        stage('get-build-pipeline') {
+        stage('get build pipeline') {
             agent any
-            triggers { pollSCM('H */1 * * 1-5') }
+            triggers { cron('H */1 * * 1-5') }
             steps {
               dir('BuildRepo'){
-                git url: 'https://github.com/OnesAndTwos/build.git'
+                git url: 'https://github.com/example/build.git'
               }
             }
         }
@@ -52,5 +51,4 @@ pipeline {
             }
         }
     }
-
 }
