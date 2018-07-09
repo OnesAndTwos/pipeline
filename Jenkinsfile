@@ -13,7 +13,7 @@ pipeline {
                 git url: 'https://gitlab.itsshared.net/ryan.dutton/jenkins-ci-pipeline.git'
               }
               sh 'echo "--- Content of Build README ---"'
-              sh 'cat BuildRepo/README.md'
+              sh 'ls BuildRepo/README.md'
               sh 'echo "-------------------------------"'
             }
         }
@@ -22,6 +22,7 @@ pipeline {
             sh '''
                 # Run All Tests :
                 pwd
+                cd BuildRepo
                 rm -rf ./venv
                 python3.6 -m venv ./venv
                 . ./venv/bin/activate
