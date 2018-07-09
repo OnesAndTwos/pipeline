@@ -23,6 +23,7 @@ pipeline {
                 # Run All Tests :
                 pwd
                 cd BuildRepo
+                ls
                 rm -rf ./venv
                 python3.6 -m venv ./venv
                 . ./venv/bin/activate
