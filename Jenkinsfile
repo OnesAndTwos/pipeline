@@ -10,7 +10,7 @@ pipeline {
         stage('get-build-pipeline') {
             steps {
               dir('BuildRepo'){
-                git url: 'https://gitlab.itsshared.net/ryan.dutton/jenkins-ci-pipeline.git'
+                git url: 'https://gitlab.itsshared.net/aws/shared-services.git'
               }
               sh 'echo "--- Content of Build README ---"'
               sh 'ls BuildRepo/README.md'
