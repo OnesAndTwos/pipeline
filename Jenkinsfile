@@ -10,7 +10,7 @@ pipeline {
         stage('get-build-pipeline') {
             steps {
               dir('BuildRepo'){
-                git url: 'https://gitlab.itsshared.net/aws/shared-services.git'
+                git url: 'git@gitlab.itsshared.net:aws/shared-services.git'
               }
               sh 'echo "--- Content of Build README ---"'
               sh 'ls BuildRepo/README.md'
