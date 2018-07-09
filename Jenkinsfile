@@ -19,8 +19,17 @@ pipeline {
         }
         stage('run tests') {
             steps {
-                runTests()
-            }
+              sh '''
+                  # Run All Tests :
+                  pwd
+                  rm -rf ./venv
+                  python3.6 -m venv ./venv
+                  . ./venv/bin/activate
+                  eval $(ssh-agent)
+                  pip install -r requirements.txt
+                  fab terraform.test_all
+                 '''
+                 }
         }
 
         stage('upload artifact') {
@@ -81,20 +90,6 @@ pipeline {
         }
     }
 }
-
-    private runTests() {
-            sh '''
-                # Run All Tests :
-                pwd
-                rm -rf ./venv
-                python3.6 -m venv ./venv
-                . ./venv/bin/activate
-                eval $(ssh-agent)
-                pip install -r requirements.txt
-                fab terraform.test_all
-               '''
-        }
-    }
 
     private def deployRpms(){
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'cloud_services_cd',  \
