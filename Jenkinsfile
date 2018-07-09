@@ -2,7 +2,7 @@ def didTimeout = false
 pipeline {
 
     agent none
-    triggers { pollSCM('H */4 * * 1-5') }
+    triggers { pollSCM('H */1 * * 1-5') }
 
     stages {
         stage('get-build-pipeline') {
